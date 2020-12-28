@@ -3,9 +3,11 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("check_circle_outline");
-  span.className = "material-icons";
-  span.appendChild(txt);
+  span.className = "fa fa-circle-thin";
+  span.onclick = function toggleCircle() {
+    this.classList.toggle("fa-dot-circle-o");
+  };
+  span.id = "circle";
   myNodelist[i].appendChild(span);
 }
 
@@ -13,7 +15,7 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("\u2715");
   span.className = "close";
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
@@ -32,6 +34,7 @@ for (i = 0; i < close.length; i++) {
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
+  // document.getElementById("test").innerHTML = "check_circle";
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
   }
@@ -51,15 +54,14 @@ function newElement() {
   document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("\u2715");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("check_circle_outline");
-  span.className = "material-icons";
-  span.appendChild(txt);
+  span.className = "fa fa-circle-thin";
+  span.id = "circle";
   li.appendChild(span);
 
   for (i = 0; i < close.length; i++) {
