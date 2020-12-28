@@ -13,9 +13,9 @@
 
 <body>
   <div id="myDIV" class="header">
-    <h2>My Tasks</h2>
-    <input type="text" id="myInput" placeholder="To Do...">
-    <span onclick="newElement()" class="addBtn">Add</span>
+    <h2>My Tasks<i id="settings" class="fa fa-cog" aria-hidden="true"></i></h2>
+    <input type="text" id="myInput" maxlength="40" placeholder="To Do...">
+    <span onclick="newElement()" id="addBtnId" class="addBtn">Add</span>
   </div>
 
   <ul id="myUL">

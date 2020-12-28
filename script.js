@@ -4,9 +4,6 @@ var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   span.className = "fa fa-circle-thin";
-  span.onclick = function toggleCircle() {
-    this.classList.toggle("fa-dot-circle-o");
-  };
   span.id = "circle";
   myNodelist[i].appendChild(span);
 }
@@ -34,9 +31,10 @@ for (i = 0; i < close.length; i++) {
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  // document.getElementById("test").innerHTML = "check_circle";
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
+    // Attempting to toggle a check mark in the circle
+    //document.getElementById("circle").classList.toggle("fa fa-check-circle");
   }
 }, false);
 
@@ -71,3 +69,16 @@ function newElement() {
     }
   }
 }
+
+// Add a new list item on pressing the Enter key
+var input = document.getElementById("myInput");
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("addBtnId").click();
+  }
+});
